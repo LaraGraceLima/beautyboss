@@ -1,53 +1,219 @@
-.appointment-booking {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fdf6f9;
+    color: #333;
 }
 
-.appointment-booking h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #b5006e;
+    padding: 14px 30px;
+    color: white;
+}
+.nav-brand {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.brand-icon { margin-right: 6px; }
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 18px;
+    font-size: 14px;
+}
+.nav-links a:hover { text-decoration: underline; }
+.btn-logout {
+    background: #fff;
+    color: #b5006e !important;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+.btn-register {
+    background: #ff69b4;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
 }
 
-.appointment-booking label {
-  margin-bottom: 5px;
-  font-weight: bold;
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
 }
 
-.appointment-booking input[type="text"],
-.appointment-booking input[type="date"],
-.appointment-booking input[type="time"],
-.appointment-booking select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 15px;
+/* CARDS / DASHBOARD */
+.dashboard-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 24px 30px;
+    flex: 1;
+    min-width: 180px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+}
+.card h3 { font-size: 36px; color: #b5006e; }
+.card p { color: #777; margin-top: 6px; }
+
+/* PAGE TITLE */
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #b5006e;
+    margin-bottom: 20px;
 }
 
-.appointment-booking button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
-  background-color: #28a745;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
-
-.appointment-booking button:hover {
-  background-color: #218838;
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #f0e0ea;
 }
+th {
+    background: #b5006e;
+    color: white;
+    font-size: 14px;
+}
+tr:hover { background: #fff0f7; }
 
-.appointment-booking .error {
-  color: red;
-  margin-top: -10px;
-  margin-bottom: 15px;
+/* FORMS */
+.form-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 480px;
+    margin: 40px auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+.form-card h2 {
+    color: #b5006e;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.form-group { margin-bottom: 16px; }
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #b5006e;
+}
+.btn {
+    width: 100%;
+    padding: 11px;
+    background: #b5006e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.btn:hover { background: #8c0055; }
+.btn-sm {
+    padding: 5px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    width: auto;
+}
+.btn-edit { background: #f0ad4e; color: white; }
+.btn-delete { background: #d9534f; color: white; }
+.btn-confirm { background: #5cb85c; color: white; }
+
+/* ALERTS */
+.alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+.alert-success { background: #d4edda; color: #155724; }
+.alert-error { background: #f8d7da; color: #721c24; }
+
+/* STATUS BADGES */
+.badge {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.badge-pending { background: #fff3cd; color: #856404; }
+.badge-confirmed { background: #d4edda; color: #155724; }
+.badge-completed { background: #cce5ff; color: #004085; }
+.badge-cancelled { background: #f8d7da; color: #721c24; }
+
+/* LOGIN PAGE */
+.login-logo {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #b5006e;
+    margin-bottom: 6px;
+}
+.login-sub {
+    text-align: center;
+    color: #999;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+.form-footer {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 13px;
+    color: #666;
+}
+.form-footer a { color: #b5006e; }
+
+/* TOP BAR for pages */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.top-bar a.btn-add {
+    background: #b5006e;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
 }
